@@ -1,0 +1,17 @@
+{
+    "P100": {
+        "name": "Notebook",
+        "price": 4.5,
+        "quantity": 10
+    },
+    "P200": {
+        "name": "Pen",
+        "price": 1.25,
+        "quantity": 20
+    },
+    "P300": {
+        "name": "John",
+        "price": 4.3,
+        "quantity": 500
+    }
+}
