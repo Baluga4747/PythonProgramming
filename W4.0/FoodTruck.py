@@ -185,6 +185,85 @@ def create_summary():
 # Main
 
 def main():
+    #Display welcome message and name
+
+    #Check for an existing save file
+    #If save file exists, load the saved game
+    #If the saved game is done, display the final summary 
+
+    #main game loop
+
+        #Display the current order
+        #Show the order number, menu items, quantities, and total price
+
+        #Display the main action menu
+        #1. View menu and recipes
+        #2. View stock and cash
+        #3. Inspect current order
+        #4. Buy supplies
+        #5. Serve order
+        #6. Decline order
+        #7. View progress
+        #8. Save game
+        #9. Save and quit
+
+        #Get and validate the player's menu choice
+
+        #If choice is 1:
+        #    Display the menu and recipes
+        #    Do not change the game state
+
+        #If choice is 2:
+        #    check_stock()
+
+        #If choice is 3:
+        #    Display the current order
+        #    Do not change the game state
+
+        #If choice is 4:
+        #    Ask the player which ingredient they want to purchase
+        #    Ask how many units they want to purchase
+        #    Validate the ingredient, quantity, cost, cash, and restocks
+        #    If valid, purchase the supplies
+        #    Update stock, cash, supply spending, and restocks
+        #    Do not advance to the next order
+
+        #If choice is 5:
+        #    Calculate all ingredient requirements for the order
+        #    Check whether enough stock is available
+        #    If there is a shortage:
+        #        Display each ingredient shortage
+        #        Do not change stock, cash, revenue, or order position
+        #    If there is enough stock:
+        #        Remove the required ingredients from stock
+        #        Add the order price to cash and revenue
+        #        Increase the served count
+        #        Move to the next order
+
+        #If choice is 6:
+        #    Decline the current order
+        #    Increase the declined count
+        #    Move to the next order
+        #    Do not change stock, cash, revenue, or restocks
+
+        #If choice is 7:
+        #    Display current progress
+        #    Do not change the game state
+
+        #If choice is 8:
+        #    Save the current game
+        #    Return to the main menu
+
+        #If choice is 9:
+        #    Save the current game
+        #    If the save is successful, exit the program
+
+    #After all 10 orders have been served or declined:
+    #    Create the final game summary
+    #    Display the summary
+    #    Write the summary to game_summary.txt
+    #    Save the completed game to the save file
+    #    End the program
     pass
 
 
