@@ -1,0 +1,249 @@
+Import needed modules
+
+Load the truck data from TruckData.json
+
+Set up:
+    Business name
+    Starting cash
+    Restock limit
+    Menu
+    Ingredients
+    Orders
+
+Create a list of 10 random orders
+
+Display a welcome message
+2. Load and Validate Data
+LOAD TruckData.json
+
+Check that the JSON file contains the required information
+
+IF the data is missing or invalid:
+    Display an error
+    Stop the program
+
+ELSE:
+    Continue
+3. Create the Day's Orders
+Take all available orders
+
+Randomly select 10 unique orders
+
+Store the selected orders
+
+Set the current order to the first order
+4. Display the Main Menu
+WHILE the game is running:
+
+    Display:
+        1. View Menu
+        2. View Stock
+        3. View Current Order
+        4. Buy Supplies
+        5. Serve Order
+        6. Decline Order
+        7. View Progress
+        8. Save Game
+        9. Load Game
+        10. Quit
+
+    Ask the player to choose an option
+
+    IF choice is 1:
+        Display menu items
+
+    IF choice is 2:
+        Display current ingredient stock
+
+    IF choice is 3:
+        Display current order
+
+    IF choice is 4:
+        Run supply purchasing
+
+    IF choice is 5:
+        Try to serve the order
+
+    IF choice is 6:
+        Decline the order
+
+    IF choice is 7:
+        Display game progress
+
+    IF choice is 8:
+        Save the game
+
+    IF choice is 9:
+        Load the saved game
+
+    IF choice is 10:
+        Ask whether the player wants to quit
+5. View the Menu
+FOR every item in the menu:
+
+    Get the menu ID
+    Get the item's information
+
+    Display:
+        Menu ID
+        Item name
+        Price
+        Ingredients needed
+6. View Stock
+FOR every ingredient:
+
+    Get ingredient name
+    Get current quantity
+
+    Display ingredient and quantity
+7. View the Current Order
+Get the current order
+
+Display:
+    Customer/order information
+    Requested menu item
+    Any other order details
+8. Buy Supplies
+Display available ingredients
+
+Ask the player which ingredient they want to buy
+
+Ask how many they want
+
+Calculate:
+
+    Total cost = quantity × ingredient price
+
+IF player has enough money:
+
+    Check that purchase does not exceed restock limit
+
+    IF purchase is within the limit:
+        Subtract money
+        Add ingredients to stock
+        Display successful purchase
+
+    ELSE:
+        Display "Restock limit exceeded"
+
+ELSE:
+    Display "Not enough money"
+9. Serve an Order
+Get the current order
+
+Determine which menu item was ordered
+
+Find the recipe for that item
+
+Check the player's inventory
+
+IF the player has enough of every required ingredient:
+
+    Remove required ingredients from inventory
+
+    Add order payment to money
+
+    Increase completed orders
+
+    Mark order as completed
+
+    Move to the next order
+
+ELSE:
+
+    Display which ingredients are missing
+
+    Do not serve the order
+10. Decline an Order
+Ask the player if they want to decline the order
+
+IF yes:
+
+    Mark the order as declined
+
+    Move to the next order
+
+ELSE:
+
+    Return to the main menu
+11. Track Progress
+Calculate:
+
+    Completed orders
+    Declined orders
+    Remaining orders
+    Current money
+    Current inventory
+
+Display the information
+
+Example:
+
+Orders completed: 6/10
+Orders declined: 1
+Orders remaining: 3
+Cash: $72.50
+12. Save the Game
+Collect the current game information:
+
+    Money
+    Inventory
+    Current order
+    Completed orders
+    Declined orders
+    Remaining orders
+    Other necessary game information
+
+Put the information into a dictionary
+
+Convert the dictionary to JSON
+
+Write the JSON to food_truck_save.json
+
+Display "Game saved"
+13. Load the Game
+Check if a save file exists
+
+IF save file exists:
+
+    Open save file
+
+    Load JSON data
+
+    Validate the saved data
+
+    IF save data is valid:
+        Restore game information
+
+    ELSE:
+        Display an error
+        Keep the current game
+
+ELSE:
+
+    Display "No save file found"
+14. Check if the Game is Finished
+After every order:
+
+    IF all 10 orders have been completed or declined:
+
+        End the game
+
+        Calculate final results
+
+        Display final summary
+
+        Write summary to game_summary.txt
+15. Final Summary
+Display:
+
+    Business name
+    Total orders completed
+    Total orders declined
+    Final cash
+    Remaining inventory
+    Overall results
+
+Save the results to game_summary.txt
+
+END

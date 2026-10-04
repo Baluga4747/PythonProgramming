@@ -1,0 +1,276 @@
+# Mac & Cheese Truck
+
+## Game Overview
+
+**Mac & Cheese Truck** is a Python-based food truck management game where you operate your own mac and cheese business.
+
+Your goal is to successfully complete customer orders while managing your money, ingredients, and inventory.
+
+You begin with a limited amount of cash and supplies. You must decide when to purchase ingredients and which orders you can successfully complete.
+
+The game uses randomly selected customer orders, so each game can be different.
+
+---
+
+## Objective
+
+The main goal of the game is to:
+
+* Complete as many customer orders as possible.
+* Manage your ingredient inventory.
+* Purchase supplies when you run low.
+* Avoid spending more money than you have.
+* Make enough money from completed orders.
+* Successfully manage all 10 customer orders.
+
+The game ends after all 10 orders have either been **completed or declined**.
+
+---
+
+# How to Start
+
+Run the Python program.
+
+The game will:
+
+1. Load the food truck information from `TruckData.json`.
+2. Load the menu, ingredients, and available customer orders.
+3. Randomly select 10 customer orders.
+4. Give you your starting cash and inventory.
+5. Display the main game menu.
+
+Once the game starts, you can begin managing your food truck.
+
+---
+
+# Main Menu
+
+During the game, you will be given several options.
+
+```text
+1. View Menu
+2. View Stock
+3. View Current Order
+4. Buy Supplies
+5. Serve Order
+6. Decline Order
+7. View Progress
+8. Save Game
+9. Load Game
+10. Quit
+```
+
+Choose an option by entering its corresponding number.
+
+---
+
+## 1. View Menu
+
+The **View Menu** option displays the available mac and cheese meals.
+
+It shows information such as:
+
+* Menu item ID
+* Menu item name
+* Price
+* Ingredients required
+
+Use this option to determine what ingredients are needed to make each meal.
+
+---
+
+## 2. View Stock
+
+The **View Stock** option shows the ingredients currently available in your food truck.
+
+For example:
+
+```text
+Cheese: 8
+Noodles: 12
+Milk: 5
+```
+
+You should check your stock before attempting to serve an order.
+
+---
+
+## 3. View Current Order
+
+The **View Current Order** option shows the customer order you currently need to complete.
+
+Use this information to determine which menu item the customer requested and what ingredients are required.
+
+---
+
+## 4. Buy Supplies
+
+The **Buy Supplies** option allows you to purchase additional ingredients.
+
+You select:
+
+1. The ingredient you want.
+2. The amount you want to purchase.
+
+The game calculates the total cost of the purchase.
+
+```text
+Total Cost = Quantity × Ingredient Price
+```
+
+You must have enough money to make the purchase.
+
+You also cannot exceed the game's restock limit.
+
+### Example
+
+If cheese costs `$2.00` per unit and you purchase 5:
+
+```text
+5 × $2.00 = $10.00
+```
+
+Your cash decreases by `$10.00`, and your cheese inventory increases by 5.
+
+---
+
+## 5. Serve Order
+
+The **Serve Order** option attempts to complete the current customer order.
+
+The game checks whether you have enough of every ingredient required by the recipe.
+
+### If you have enough ingredients:
+
+* The required ingredients are removed from your inventory.
+* You receive payment for the order.
+* The order is marked as completed.
+* The game moves to the next order.
+
+### If you do not have enough ingredients:
+
+The order cannot be completed.
+
+The game will tell you which ingredients are missing.
+
+You can then purchase additional supplies and try again.
+
+---
+
+## 6. Decline Order
+
+If you do not want to or cannot complete the current order, you can decline it.
+
+When an order is declined:
+
+* The order is marked as declined.
+* You do not receive payment.
+* The game moves to the next order.
+
+Declining an order can be useful when you do not have enough money or ingredients to complete it.
+
+---
+
+## 7. View Progress
+
+The **View Progress** option shows how your food truck is doing.
+
+It can show information such as:
+
+```text
+Orders Completed: 6/10
+Orders Declined: 1
+Orders Remaining: 3
+Cash: $72.50
+```
+
+Use this option to keep track of how far you are through the game.
+
+---
+
+## 8. Save Game
+
+The **Save Game** option saves your current progress.
+
+Your game information is stored in:
+
+```text
+food_truck_save.json
+```
+
+The save contains information needed to restore your current game, such as:
+
+* Money
+* Inventory
+* Current order
+* Completed orders
+* Declined orders
+* Remaining game information
+
+You can save whenever you want during the game.
+
+---
+
+## 9. Load Game
+
+The **Load Game** option allows you to restore a previously saved game.
+
+The program checks whether a save file exists and whether the saved information is valid.
+
+If the save is valid, your previous game state is restored.
+
+If no save exists or the save data is invalid, the game will display an error instead of loading the data.
+
+---
+
+## 10. Quit
+
+The **Quit** option allows you to leave the game.
+
+If you quit before completing all 10 orders, your current progress will only be available later if you saved the game.
+
+---
+
+# Game Strategy
+
+There are several things you should consider while playing.
+
+### Manage Your Money
+
+You start with a limited amount of cash.
+
+Do not spend all of your money on ingredients that you do not need.
+
+### Watch Your Inventory
+
+Check the current order and recipe before purchasing supplies.
+
+Buying only what you need can help preserve your money.
+
+### Plan Ahead
+
+Some orders may require ingredients that are also needed for future orders.
+
+Keep an eye on your inventory and remaining orders.
+
+### Use Decline Carefully
+
+Declining an order means you will not receive its payment.
+
+However, declining an order may be better than spending too much money trying to complete it.
+
+### Save Your Game
+
+Save your progress regularly so you can recover your game if you exit the program.
+
+---
+
+# Winning / Completing the Game
+
+There is not necessarily a single "win" condition based only on completing orders.
+
+The game is designed around managing the food truck efficiently.
+
+At the end of the game, you can review:
+
+* Orders completed
