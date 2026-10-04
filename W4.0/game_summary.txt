@@ -1,0 +1,16 @@
+
+=======================================================
+       MAC & CHEESE TRUCK - SHIFT COMPLETE
+=======================================================
+
+All 10 customer orders have been completed.
+
+Orders served:   5
+Orders declined: 5
+
+Starting cash:   $25.00
+Sales revenue:   $132.72
+Supply spending: $1.00
+Ending cash:     $156.72
+
+=======================================================
