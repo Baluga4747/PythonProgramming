@@ -3,6 +3,7 @@ from pathlib import Path
 
 file_path = Path(__file__).resolve().parent / "sales.csv"
 
+
 try:
     df = pd.read_csv(file_path)
 except FileNotFoundError:

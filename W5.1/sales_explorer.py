@@ -9,6 +9,7 @@ print(df.columns)
 print(df.shape)
 print(df.dtypes)
 
+
 df.info()
 
 print(df[["sale_id", "product", "region"]])
