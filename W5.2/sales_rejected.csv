@@ -1,0 +1,7 @@
+sale_id,product_id,product,category,unit_price,quantity,region
+S011,P300,Mug,Gifts,,3.0,South
+S012,P100,Notebook,Stationery,,2.0,West
+S013,P200,Pen,Stationery,1.25,-2.0,North
+S014,P400,,Gifts,12.0,2.0,West
+S016,P500,Folder,Stationery,2.0,2.5,North
+,P600,Water Bottle,Gifts,15.0,1.0,West
