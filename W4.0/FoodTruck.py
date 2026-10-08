@@ -1,6 +1,7 @@
 import json
 import random
 from pathlib import Path
+import pandas as pd
 
 # FILES
 # Set the paths for the game data, save file, and summary file.
@@ -52,10 +53,10 @@ def get_valid_choice():
 
     while True:
         choice = input("> ").strip()
-        if choice in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+        if choice in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]:
             return choice
 
-        print("Invalid choice. Please enter a number from 1-9.")
+        print("Invalid choice. Please enter a number from 1-10.")
 
 
 def get_purchase_quantity():
@@ -115,6 +116,40 @@ def display_stock():
     print(f"Restocks remaining: {restocks}")
     print("-" * 55)
 
+def inventory_report():
+    #create a pandas report with a list of ingredients that are running low(under 5)
+
+    inventory_data = []
+
+    for ingredient_id, ingredient in truck_data["ingredients"].items():
+        inventory_data.append({
+            "Ingredient ID": ingredient_id,
+            "Name": ingredient["name"],
+            "Stock": ingredient["stock"],
+            "Cost": ingredient["cost"]
+        })
+
+    inventory_df = pd.DataFrame(inventory_data)
+
+    low_stock = inventory_df[inventory_df["Stock"] < 5]
+    low_stock = low_stock.sort_values(by="Stock")
+
+    total_stock = inventory_df["Stock"].sum()
+
+    print()
+    print("-" * 55)
+    print("              I N V E N T O R Y   R E P O R T")
+    print("-" * 55)
+
+    if low_stock.empty:
+        print("All ingredients are sufficiently stocked.")
+    else:
+        print("Ingredients running low (under 5):")
+        print(low_stock.to_string(index=False))
+
+    print(f"Total stock: {total_stock}")
+    print("-" * 55)
+    
 
 def calculate_order():
     # Calculate the ingredients and total price needed for the order.
@@ -805,8 +840,9 @@ def main():
         print("5. Serve order")
         print("6. Decline order")
         print("7. View progress")
-        print("8. Save game")
-        print("9. Save and quit")
+        print("8. Inventory report")
+        print("9. Save game")
+        print("10. Save and quit")
 
         print()
         print("Choose an action:")
@@ -855,15 +891,20 @@ def main():
 
             display_progress()
 
+        # INVENTORY REPORT
+        elif choice == "8":
+
+            inventory_report()
+
         # SAVE
 
-        elif choice == "8":
+        elif choice == "9":
 
             save_game()
 
         # SAVE AND QUIT
 
-        elif choice == "9":
+        elif choice == "10":
 
             if save_game():
 
