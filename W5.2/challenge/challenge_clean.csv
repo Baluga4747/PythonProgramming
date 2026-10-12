@@ -1,0 +1,12 @@
+sale_id,product_id,product,category,unit_price,quantity,region,revenue
+S001,P100,Notebook,Stationery,4.5,10.0,North,45.0
+S002,P200,Pen,Stationery,1.25,20.0,South,25.0
+S003,P300,Mug,Gifts,8.0,5.0,North,40.0
+S004,P400,Tote Bag,Gifts,12.0,3.0,West,36.0
+S005,P100,Notebook,Stationery,4.5,6.0,South,27.0
+S006,P500,Folder,Stationery,2.0,12.0,West,24.0
+S007,P300,Mug,Gifts,8.0,4.0,South,32.0
+S008,P600,Water Bottle,Gifts,15.0,2.0,North,30.0
+S009,P200,Pen,Stationery,1.25,8.0,West,10.0
+S010,P500,Folder,Stationery,2.0,7.0,North,14.0
+S015,P700,Eraser,Unknown,3.0,4.0,South,12.0

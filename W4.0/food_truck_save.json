@@ -3,9 +3,9 @@
     "revenue": 210.4,
     "supply_spending": 70.5,
     "served": 6,
-    "declined": 0,
+    "declined": 4,
     "restocks": 0,
-    "current_order_index": 6,
+    "current_order_index": 10,
     "selected_orders": [
         "O037",
         "O090",
