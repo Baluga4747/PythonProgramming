@@ -1,654 +1,324 @@
 {
-  "game_settings": {
-    "starting_health": 100,
-    "starting_max_health": 100,
-    "starting_attack_min": 8,
-    "starting_attack_max": 12,
+  "settings": {
+    "potion_heal": 25,
+    "rest_heal": [
+      10,
+      30
+    ],
+    "flee_chance": 0.45,
+    "health_increase": 10,
+    "attack_increase": 2,
+    "elite_chance": 0.2,
+    "boss_chance": 0.1,
+    "dodge_chance": 0.2,
+    "strength_bonus": 5,
+    "toughness_reduction": 3
+  },
+  "player_start": {
+    "max_health": 100,
+    "attack_min": 8,
+    "attack_max": 15,
     "starting_gold": 25,
-    "starting_potions": 2,
-
-    "difficulty": {
-      "rooms_per_level": 5,
-      "enemy_health_increase": 10,
-      "enemy_damage_increase": 2,
-      "boss_health_increase": 25,
-      "boss_damage_increase": 3
-    },
-
-    "combat": {
-      "base_dodge_chance": 0.05,
-      "critical_hit_chance": 0.05,
-      "critical_damage_multiplier": 2.0,
-      "flee_chance": 0.35
-    },
-
-    "potion_effects": {
-      "healing_potion": 25,
-      "strength_duration": 3,
-      "strength_bonus": 8,
-      "speed_duration": 3,
-      "speed_dodge_bonus": 0.15
-    },
-
-    "weapon_rules": {
-      "minimum_durability": 0,
-      "starting_durability": 100,
-      "durability_loss_per_attack": 1
-    }
+    "potions": 2,
+    "weapon": "rusty_sword"
   },
-
-  "room_types": {
-    "combat": {
-      "weight": 35,
-      "description": "A dangerous room containing one or more enemies."
-    },
-
-    "loot": {
-      "weight": 20,
-      "description": "A room containing a chest or other source of treasure."
-    },
-
-    "trap": {
-      "weight": 10,
-      "description": "A dangerous room containing a hidden or visible trap."
-    },
-
-    "rest": {
-      "weight": 10,
-      "description": "A relatively safe room where the player can recover."
-    },
-
-    "blank": {
-      "weight": 15,
-      "description": "An empty room with nothing immediately threatening the player."
-    },
-
-    "elite": {
-      "weight": 7,
-      "description": "A difficult combat room containing a stronger enemy."
-    },
-
-    "boss": {
-      "weight": 3,
-      "description": "A rare room containing a powerful boss enemy and valuable rewards."
-    }
+  "rooms": {
+    "combat": [
+      "A dark chamber echoes with movement.",
+      "Something dangerous blocks the path ahead.",
+      "You enter an arena lit by flickering torches.",
+      "A growl comes from the shadows.",
+      "The dungeon suddenly becomes very quiet."
+    ],
+    "chest": [
+      "An old wooden chest sits against the wall.",
+      "You discover a locked-looking iron chest.",
+      "A treasure chest rests beneath a torch.",
+      "Something valuable may be hidden here.",
+      "A battered chest has been left in the hallway."
+    ],
+    "trap": [
+      "The floor gives a suspicious click.",
+      "A tripwire is nearly invisible.",
+      "Ancient mechanisms begin moving.",
+      "The ceiling groans above you.",
+      "A pressure plate waits beneath your foot."
+    ],
+    "rest": [
+      "You find a sheltered alcove.",
+      "A warm fire burns beside an empty campsite.",
+      "The room is strangely comfortable.",
+      "You find a quiet place to recover.",
+      "An old bedroll offers a brief rest."
+    ],
+    "quiet": [
+      "Nothing moves in this room.",
+      "The hallway stretches into darkness.",
+      "Dust covers everything.",
+      "You hear only your own footsteps.",
+      "The room contains nothing of interest."
+    ]
   },
-
-  "room_descriptions": [
-    "A cold stone chamber lit by flickering torches.",
-    "A long hallway covered in ancient markings.",
-    "A massive underground chamber filled with broken statues.",
-    "A damp cavern with water dripping from the ceiling.",
-    "A ruined room containing the remains of an ancient camp.",
-    "A dark corridor where you can hear something moving in the distance.",
-    "A large circular room surrounded by crumbling pillars.",
-    "A narrow passage that opens into a surprisingly large chamber.",
-    "An ancient room covered in strange glowing symbols.",
-    "A forgotten underground vault."
-  ],
-
   "enemies": [
     {
-      "id": "cave_rat",
-      "name": "Cave Rat",
-      "type": "beast",
-      "rarity": "common",
-      "base_health": 25,
-      "attack_min": 3,
-      "attack_max": 7,
-      "gold_min": 3,
-      "gold_max": 8,
-      "dodge_chance": 0.10,
-      "abilities": [
-        "quick"
-      ]
-    },
-
-    {
-      "id": "goblin",
       "name": "Goblin",
-      "type": "humanoid",
-      "rarity": "common",
-      "base_health": 35,
-      "attack_min": 5,
-      "attack_max": 10,
-      "gold_min": 5,
-      "gold_max": 15,
-      "dodge_chance": 0.05,
-      "abilities": []
+      "health": 35,
+      "attack": [
+        5,
+        10
+      ],
+      "gold": [
+        8,
+        18
+      ],
+      "kind": "normal"
     },
-
     {
-      "id": "skeleton",
-      "name": "Skeleton Warrior",
-      "type": "undead",
-      "rarity": "common",
-      "base_health": 45,
-      "attack_min": 6,
-      "attack_max": 12,
-      "gold_min": 8,
-      "gold_max": 18,
-      "dodge_chance": 0.05,
-      "abilities": [
-        "armored"
-      ]
+      "name": "Skeleton",
+      "health": 40,
+      "attack": [
+        6,
+        11
+      ],
+      "gold": [
+        10,
+        20
+      ],
+      "kind": "normal"
     },
-
     {
-      "id": "orc",
-      "name": "Orc Brute",
-      "type": "humanoid",
-      "rarity": "uncommon",
-      "base_health": 65,
-      "attack_min": 8,
-      "attack_max": 16,
-      "gold_min": 12,
-      "gold_max": 25,
-      "dodge_chance": 0.03,
-      "abilities": [
-        "heavy_hit"
-      ]
+      "name": "Wolf",
+      "health": 45,
+      "attack": [
+        7,
+        12
+      ],
+      "gold": [
+        9,
+        22
+      ],
+      "kind": "normal"
     },
-
     {
-      "id": "vampire_bat",
-      "name": "Vampire Bat",
-      "type": "beast",
-      "rarity": "uncommon",
-      "base_health": 50,
-      "attack_min": 7,
-      "attack_max": 14,
-      "gold_min": 10,
-      "gold_max": 22,
-      "dodge_chance": 0.20,
-      "abilities": [
-        "lifesteal",
-        "quick"
-      ]
+      "name": "Bandit",
+      "health": 50,
+      "attack": [
+        7,
+        13
+      ],
+      "gold": [
+        12,
+        25
+      ],
+      "kind": "normal"
     },
-
     {
-      "id": "dark_knight",
-      "name": "Dark Knight",
-      "type": "humanoid",
-      "rarity": "rare",
-      "base_health": 90,
-      "attack_min": 12,
-      "attack_max": 20,
-      "gold_min": 20,
-      "gold_max": 40,
-      "dodge_chance": 0.08,
-      "abilities": [
-        "armored",
-        "critical"
-      ]
-    },
-
-    {
-      "id": "shadow_beast",
-      "name": "Shadow Beast",
-      "type": "demon",
-      "rarity": "rare",
-      "base_health": 110,
-      "attack_min": 14,
-      "attack_max": 24,
-      "gold_min": 25,
-      "gold_max": 50,
-      "dodge_chance": 0.15,
-      "abilities": [
-        "lifesteal",
-        "quick"
-      ]
+      "name": "Orc",
+      "health": 60,
+      "attack": [
+        8,
+        15
+      ],
+      "gold": [
+        15,
+        30
+      ],
+      "kind": "normal"
     }
   ],
-
   "elite_enemies": [
     {
-      "id": "elite_orc",
-      "name": "Elite Orc Warlord",
-      "type": "elite",
-      "base_health": 180,
-      "attack_min": 18,
-      "attack_max": 30,
-      "gold_min": 60,
-      "gold_max": 100,
-      "dodge_chance": 0.08,
-      "abilities": [
-        "heavy_hit",
-        "armored",
-        "critical"
-      ]
+      "name": "Elite Orc",
+      "health": 90,
+      "attack": [
+        12,
+        20
+      ],
+      "gold": [
+        30,
+        55
+      ],
+      "kind": "elite"
     },
-
     {
-      "id": "elite_knight",
-      "name": "Black Knight",
-      "type": "elite",
-      "base_health": 220,
-      "attack_min": 20,
-      "attack_max": 35,
-      "gold_min": 75,
-      "gold_max": 125,
-      "dodge_chance": 0.12,
-      "abilities": [
-        "armored",
-        "critical"
-      ]
+      "name": "Dark Knight",
+      "health": 110,
+      "attack": [
+        13,
+        22
+      ],
+      "gold": [
+        40,
+        70
+      ],
+      "kind": "elite"
     }
   ],
-
   "bosses": [
     {
-      "id": "cave_king",
-      "name": "The Cave King",
-      "type": "boss",
-      "base_health": 350,
-      "attack_min": 25,
-      "attack_max": 40,
-      "gold_min": 150,
-      "gold_max": 250,
-      "dodge_chance": 0.08,
-      "abilities": [
-        "heavy_hit",
-        "critical",
-        "armored"
+      "name": "Dungeon Lord",
+      "health": 180,
+      "attack": [
+        18,
+        28
       ],
-      "boss_reward": {
-        "gold_min": 100,
-        "gold_max": 200,
-        "guaranteed_rarity": "rare"
-      }
+      "gold": [
+        75,
+        120
+      ],
+      "kind": "boss"
     },
-
     {
-      "id": "ancient_demon",
-      "name": "Ancient Demon",
-      "type": "boss",
-      "base_health": 500,
-      "attack_min": 30,
-      "attack_max": 50,
-      "gold_min": 200,
-      "gold_max": 350,
-      "dodge_chance": 0.12,
-      "abilities": [
-        "lifesteal",
-        "critical",
-        "heavy_hit"
+      "name": "Ancient Dragon",
+      "health": 230,
+      "attack": [
+        20,
+        32
       ],
-      "boss_reward": {
-        "gold_min": 150,
-        "gold_max": 300,
-        "guaranteed_rarity": "epic"
-      }
+      "gold": [
+        100,
+        160
+      ],
+      "kind": "boss"
     }
   ],
-
+  "chests": [
+    {
+      "name": "Wooden Chest",
+      "gold": [
+        10,
+        25
+      ],
+      "potions": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "Iron Chest",
+      "gold": [
+        20,
+        40
+      ],
+      "potions": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "Golden Chest",
+      "gold": [
+        35,
+        70
+      ],
+      "potions": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "Ancient Chest",
+      "gold": [
+        50,
+        100
+      ],
+      "potions": [
+        1,
+        3
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "name": "Spike Trap",
+      "damage": [
+        10,
+        20
+      ]
+    },
+    {
+      "name": "Fire Trap",
+      "damage": [
+        15,
+        25
+      ]
+    },
+    {
+      "name": "Falling Rocks",
+      "damage": [
+        20,
+        30
+      ]
+    }
+  ],
   "weapons": [
     {
       "id": "rusty_sword",
       "name": "Rusty Sword",
-      "rarity": "common",
-      "damage_min": 5,
-      "damage_max": 10,
-      "durability": 50,
+      "damage": [
+        0,
+        3
+      ],
+      "durability": 30,
       "perks": []
     },
-
     {
       "id": "iron_sword",
       "name": "Iron Sword",
-      "rarity": "common",
-      "damage_min": 8,
-      "damage_max": 14,
-      "durability": 75,
-      "perks": []
-    },
-
-    {
-      "id": "steel_sword",
-      "name": "Steel Sword",
-      "rarity": "uncommon",
-      "damage_min": 12,
-      "damage_max": 20,
-      "durability": 100,
+      "damage": [
+        2,
+        6
+      ],
+      "durability": 50,
       "perks": [
         "sharp"
       ]
     },
-
     {
-      "id": "berserker_axe",
-      "name": "Berserker Axe",
-      "rarity": "rare",
-      "damage_min": 18,
-      "damage_max": 30,
-      "durability": 80,
+      "id": "war_axe",
+      "name": "War Axe",
+      "damage": [
+        4,
+        8
+      ],
+      "durability": 45,
       "perks": [
-        "heavy",
-        "berserker"
-      ]
-    },
-
-    {
-      "id": "shadow_blade",
-      "name": "Shadow Blade",
-      "rarity": "rare",
-      "damage_min": 16,
-      "damage_max": 26,
-      "durability": 100,
-      "perks": [
-        "swift",
-        "critical"
-      ]
-    },
-
-    {
-      "id": "demon_slayer",
-      "name": "Demon Slayer",
-      "rarity": "epic",
-      "damage_min": 25,
-      "damage_max": 40,
-      "durability": 125,
-      "perks": [
-        "demon_slayer",
-        "sharp"
+        "heavy"
       ]
     }
   ],
-
-  "weapon_perks": {
-    "sharp": {
-      "description": "Increases minimum weapon damage.",
-      "effect": {
-        "damage_min_bonus": 3
-      }
-    },
-
-    "heavy": {
-      "description": "Increases maximum damage but reduces dodge chance.",
-      "effect": {
-        "damage_max_bonus": 8,
-        "dodge_penalty": 0.05
-      }
-    },
-
-    "swift": {
-      "description": "Makes the player harder to hit.",
-      "effect": {
-        "dodge_bonus": 0.10
-      }
-    },
-
-    "critical": {
-      "description": "Increases critical hit chance.",
-      "effect": {
-        "critical_chance_bonus": 0.10
-      }
-    },
-
-    "berserker": {
-      "description": "Deal more damage while below half health.",
-      "effect": {
-        "low_health_damage_bonus": 10
-      }
-    },
-
-    "demon_slayer": {
-      "description": "Deals bonus damage to demon enemies.",
-      "effect": {
-        "demon_damage_bonus": 15
-      }
-    }
-  },
-
   "potions": [
     {
-      "id": "healing_potion",
       "name": "Healing Potion",
-      "rarity": "common",
-      "description": "Restores health.",
-      "effect": {
-        "type": "heal",
-        "amount_min": 20,
-        "amount_max": 30
-      }
+      "effect": "heal",
+      "value": 25
     },
-
     {
-      "id": "poison_potion",
-      "name": "Poison Potion",
-      "rarity": "common",
-      "description": "Deals damage to an enemy.",
-      "effect": {
-        "type": "damage",
-        "amount_min": 15,
-        "amount_max": 25
-      }
-    },
-
-    {
-      "id": "strength_potion",
       "name": "Strength Potion",
-      "rarity": "uncommon",
-      "description": "Temporarily increases weapon damage.",
-      "effect": {
-        "type": "strength",
-        "damage_bonus": 10,
-        "duration": 3
-      }
+      "effect": "strength",
+      "value": 5
     },
-
     {
-      "id": "speed_potion",
       "name": "Speed Potion",
-      "rarity": "uncommon",
-      "description": "Temporarily increases dodge chance.",
-      "effect": {
-        "type": "speed",
-        "dodge_bonus": 0.20,
-        "duration": 3
-      }
-    },
-
-    {
-      "id": "berserk_potion",
-      "name": "Berserk Potion",
-      "rarity": "rare",
-      "description": "Greatly increases damage but lowers dodge chance.",
-      "effect": {
-        "type": "berserk",
-        "damage_bonus": 20,
-        "dodge_penalty": 0.10,
-        "duration": 3
-      }
+      "effect": "speed",
+      "value": 1
     }
   ],
-
-  "chests": [
-    {
-      "id": "wooden_chest",
-      "name": "Wooden Chest",
-      "rarity": "common",
-      "gold_min": 10,
-      "gold_max": 25,
-      "potion_chance": 0.30,
-      "weapon_chance": 0.05,
-      "weapon_rarity": "common"
-    },
-
-    {
-      "id": "iron_chest",
-      "name": "Iron Chest",
-      "rarity": "uncommon",
-      "gold_min": 20,
-      "gold_max": 45,
-      "potion_chance": 0.45,
-      "weapon_chance": 0.15,
-      "weapon_rarity": "uncommon"
-    },
-
-    {
-      "id": "golden_chest",
-      "name": "Golden Chest",
-      "rarity": "rare",
-      "gold_min": 40,
-      "gold_max": 80,
-      "potion_chance": 0.65,
-      "weapon_chance": 0.35,
-      "weapon_rarity": "rare"
-    },
-
-    {
-      "id": "ancient_chest",
-      "name": "Ancient Chest",
-      "rarity": "epic",
-      "gold_min": 75,
-      "gold_max": 150,
-      "potion_chance": 0.80,
-      "weapon_chance": 0.60,
-      "weapon_rarity": "epic"
-    }
-  ],
-
-  "traps": [
-    {
-      "id": "spike_trap",
-      "name": "Spiked Floor",
-      "damage_min": 8,
-      "damage_max": 18
-    },
-
-    {
-      "id": "arrow_trap",
-      "name": "Arrow Trap",
-      "damage_min": 12,
-      "damage_max": 25
-    },
-
-    {
-      "id": "fire_trap",
-      "name": "Fire Trap",
-      "damage_min": 18,
-      "damage_max": 30
-    },
-
-    {
-      "id": "poison_trap",
-      "name": "Poison Dart Trap",
-      "damage_min": 10,
-      "damage_max": 20
-    }
-  ],
-
-  "rest_rooms": [
-    {
-      "id": "campfire",
-      "name": "Forgotten Campfire",
-      "heal_min": 10,
-      "heal_max": 25
-    },
-
-    {
-      "id": "healing_spring",
-      "name": "Healing Spring",
-      "heal_min": 20,
-      "heal_max": 40
-    },
-
-    {
-      "id": "ancient_shrine",
-      "name": "Ancient Shrine",
-      "heal_min": 25,
-      "heal_max": 50
-    }
-  ],
-
-  "blank_rooms": [
-    {
-      "id": "empty_chamber",
-      "name": "Empty Chamber",
-      "description": "The room is completely empty."
-    },
-
-    {
-      "id": "broken_hall",
-      "name": "Broken Hall",
-      "description": "The remains of an ancient structure surround you."
-    },
-
-    {
-      "id": "dark_cavern",
-      "name": "Dark Cavern",
-      "description": "Nothing moves in the darkness."
-    },
-
-    {
-      "id": "ancient_library",
-      "name": "Ancient Library",
-      "description": "Rotten books line the walls, but nothing appears useful."
-    }
-  ],
-
   "perks": [
     {
-      "id": "vampiric",
-      "name": "Vampiric",
-      "description": "Restore a small amount of health when dealing damage.",
-      "effect": {
-        "type": "lifesteal",
-        "percent": 0.05
-      }
+      "id": "sharp",
+      "name": "Sharp",
+      "damage_bonus": 2
     },
-
     {
-      "id": "executioner",
-      "name": "Executioner",
-      "description": "Deal additional damage to enemies below 25% health.",
-      "effect": {
-        "type": "execute",
-        "health_threshold": 0.25,
-        "damage_bonus": 15
-      }
+      "id": "heavy",
+      "name": "Heavy",
+      "damage_bonus": 3
     },
-
     {
-      "id": "lucky",
-      "name": "Lucky",
-      "description": "Improves the chance of finding valuable loot.",
-      "effect": {
-        "type": "loot_bonus",
-        "bonus": 0.10
-      }
-    },
-
-    {
-      "id": "iron_skin",
-      "name": "Iron Skin",
-      "description": "Reduces incoming damage.",
-      "effect": {
-        "type": "damage_reduction",
-        "percent": 0.10
-      }
-    },
-
-    {
-      "id": "thick_blood",
-      "name": "Thick Blood",
-      "description": "Increases maximum health.",
-      "effect": {
-        "type": "max_health",
-        "bonus": 20
-      }
-    },
-
-    {
-      "id": "quick_hands",
-      "name": "Quick Hands",
-      "description": "Improves dodge chance.",
-      "effect": {
-        "type": "dodge",
-        "bonus": 0.10
-      }
+      "id": "swift",
+      "name": "Swift",
+      "damage_bonus": 0
     }
   ]
 }

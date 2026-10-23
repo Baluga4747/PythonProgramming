@@ -1,0 +1,144 @@
+START PROGRAM
+
+LOAD game data from JSON file
+IF data is invalid
+    STOP program
+END IF
+
+IF save file exists
+    LOAD save file
+    VALIDATE save data
+
+    IF run is already finished
+        DISPLAY reports
+        STOP
+    END IF
+
+    ASK player if they want to resume
+    IF no
+        STOP
+    END IF
+ELSE
+    CREATE new player
+END IF
+
+WHILE game status is ACTIVE
+
+    DISPLAY menu:
+        1. Explore
+        2. View Stats
+        3. Use Potion
+        4. Save Game
+        5. Save and Quit
+        6. Retire
+
+    GET player choice
+
+    CASE choice
+
+        Explore:
+            Choose direction
+            Increase room number
+
+            Generate random room
+                Combat
+                Chest
+                Trap
+                Rest
+                Quiet
+
+            IF Combat room
+                Start combat loop
+
+                WHILE enemy alive AND player alive
+                    Choose:
+                        Attack
+                        Use Potion
+                        Flee
+
+                    IF Attack
+                        Deal damage to enemy
+
+                        IF enemy defeated
+                            Award gold
+                        ELSE
+                            Enemy attacks
+                        END IF
+
+                    ELSE IF Potion
+                        Use selected potion
+                        Enemy attacks
+
+                    ELSE IF Flee
+                        Attempt escape
+                        IF fail
+                            Enemy attacks
+                        END IF
+                    END IF
+                END WHILE
+
+            ELSE IF Chest room
+                Open chest OR leave
+                Gain gold and/or potions
+
+            ELSE IF Trap room
+                Take damage
+
+            ELSE IF Rest room
+                Recover health
+
+            ELSE IF Quiet room
+                Nothing happens
+            END IF
+
+            Record room results
+
+            IF player health <= 0
+                End game as DEAD
+            END IF
+
+        Stats:
+            Display player information
+                Health
+                Gold
+                Potions
+                Weapon
+                Current room
+
+        Use Potion:
+            Show available potions
+            Apply potion effect
+                Heal
+                Strength boost
+                Speed boost
+
+        Save:
+            Save player data
+            Save room history
+            Save event history
+
+        Save and Quit:
+            Save game
+            Exit menu
+
+        Retire:
+            End game as RETIRED
+
+    END CASE
+
+END WHILE
+
+GENERATE final reports
+    Room history CSV
+    Statistics CSV
+    Event log CSV
+
+DISPLAY run summary
+    Rooms explored
+    Enemies defeated
+    Gold collected
+    Damage taken
+    Potions found/used
+    Health restored
+
+END PROGRAM

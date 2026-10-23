@@ -1,0 +1,148 @@
+{
+  "player": {
+    "name": "lucas",
+    "health": 10,
+    "max_health": 100,
+    "attack_min": 8,
+    "attack_max": 15,
+    "starting_gold": 25,
+    "gold": 65,
+    "potions": 3,
+    "room": 2,
+    "equipped_weapon": "rusty_sword",
+    "weapons": {
+      "rusty_sword": {
+        "id": "rusty_sword",
+        "name": "Rusty Sword",
+        "damage": [
+          0,
+          3
+        ],
+        "durability": 30,
+        "perks": []
+      }
+    },
+    "perks": [],
+    "effects": {
+      "strength": 0,
+      "speed": 0,
+      "toughness": 0
+    }
+  },
+  "room_history": [
+    {
+      "room_number": 1,
+      "room_type": "quiet",
+      "encounter": "none",
+      "outcome": "passed",
+      "damage_taken": 0,
+      "gold_found": 0,
+      "potions_found": 0,
+      "health_start": 100,
+      "health_end": 100,
+      "health_restored": 0,
+      "potions_used": 0
+    },
+    {
+      "room_number": 2,
+      "room_type": "chest",
+      "encounter": "Iron Chest",
+      "outcome": "opened",
+      "damage_taken": 0,
+      "gold_found": 40,
+      "potions_found": 1,
+      "health_start": 100,
+      "health_end": 100,
+      "health_restored": 0,
+      "potions_used": 0
+    }
+  ],
+  "event_timeline": [
+    {
+      "step": 0,
+      "room_number": 0,
+      "room_type": "none",
+      "phase": "start",
+      "event": "start",
+      "encounter": "none",
+      "health_before": 100,
+      "health_after": 100,
+      "max_health": 100,
+      "health_change": 0,
+      "damage_taken": 0,
+      "health_restored": 0,
+      "potions_used": 0,
+      "potions_remaining": 2,
+      "gold_total": 25
+    },
+    {
+      "step": 1,
+      "room_number": 1,
+      "room_type": "quiet",
+      "phase": "in_room",
+      "event": "room_entry",
+      "encounter": "The room contains nothing of interest.",
+      "health_before": 100,
+      "health_after": 100,
+      "max_health": 100,
+      "health_change": 0,
+      "damage_taken": 0,
+      "health_restored": 0,
+      "potions_used": 0,
+      "potions_remaining": 2,
+      "gold_total": 25
+    },
+    {
+      "step": 2,
+      "room_number": 1,
+      "room_type": "quiet",
+      "phase": "in_room",
+      "event": "quiet",
+      "encounter": "quiet",
+      "health_before": 100,
+      "health_after": 100,
+      "max_health": 100,
+      "health_change": 0,
+      "damage_taken": 0,
+      "health_restored": 0,
+      "potions_used": 0,
+      "potions_remaining": 2,
+      "gold_total": 25
+    },
+    {
+      "step": 3,
+      "room_number": 2,
+      "room_type": "chest",
+      "phase": "in_room",
+      "event": "room_entry",
+      "encounter": "You discover a locked-looking iron chest.",
+      "health_before": 100,
+      "health_after": 100,
+      "max_health": 100,
+      "health_change": 0,
+      "damage_taken": 0,
+      "health_restored": 0,
+      "potions_used": 0,
+      "potions_remaining": 2,
+      "gold_total": 25
+    },
+    {
+      "step": 4,
+      "room_number": 2,
+      "room_type": "chest",
+      "phase": "in_room",
+      "event": "chest_opened",
+      "encounter": "Iron Chest",
+      "health_before": 100,
+      "health_after": 100,
+      "max_health": 100,
+      "health_change": 0,
+      "damage_taken": 0,
+      "health_restored": 0,
+      "potions_used": 0,
+      "potions_remaining": 3,
+      "gold_total": 65
+    }
+  ],
+  "run_status": "active"
+}
